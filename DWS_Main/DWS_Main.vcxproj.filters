@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="init.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIFuncs.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="init.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIFuncs.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gui">
+      <UniqueIdentifier>{3f838c55-f6a1-4475-bd20-2959f579e98b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{5a039127-29fe-44e4-a6af-698655fec818}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DWS-Logo.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Downloads\other_cat.ico">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="other_cat.ico">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DWS_Main.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
