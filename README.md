@@ -11,4 +11,9 @@ RUS:
 
 ENG:
 
-Pls translate RUS ) Sorry ) I translate later.
+Hello. Since you here, means that you are looking for a new version of DWS? How you see, it's absent yet, and sources are raw and there are not ready for usage.
+The project is not abounded (State since 04/30/2016). I just have no time to work closely with it.
+We will glad if you would help us to build a new version.
+If you are asking, Why we have published that? Because carry a release date has become ashamed, and we want to show that development still in process and we are not forgetting about you.
+
+Waiting your suggestions and commits =)
