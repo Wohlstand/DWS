@@ -1,5 +1,7 @@
 #include "RegManager.h"
 #include "DWS_Utility.h"
+#include <Shlwapi.h>
+
 namespace DWSUtility
 {
 	String RegistryManager::machinePath = TEXT(".\\");
@@ -137,8 +139,7 @@ namespace DWSUtility
 
 		void Key::remove()
 		{
-			//\TODO не удаляет, проверить
-			LONG result = RegDeleteKey(info.nativeHandle, info.address.c_str());
+			LONG result = RegDeleteValue(info.nativeHandle, info.address.c_str());
 			if (ERROR_SUCCESS != result)
 			{
 				UC_ERROR << "Error on remove registry item : " << info.fullAddress << " error = " << result << "\r\n";
@@ -223,26 +224,7 @@ namespace DWSUtility
 				UC_ERROR << "don't open dir " << info.fullAddress << " -> not create inherit items...\r\n";
 				throw "isValid";
 			}
-			//HKEY created = 0;
-			//DWORD resultOpen = 0;
-			//LONG resultCreate = RegCreateKeyEx(
-			//	info.nativeHandle,
-			//	_name.c_str(),
-			//	NULL,
-			//	NULL,
-			//	NULL,
-			//	KEY_ALL_ACCESS,
-			//	NULL,
-			//	&created,
-			//	&resultOpen
-			//	);
-			//if (ERROR_SUCCESS != resultCreate)
-			//{
-			//	UC_ERROR << "Error on create key " << info.fullAddress << _name << "\r\n";
-			//	return Key();
-			//}
-			//CloseHandle((HANDLE)created);//создали? Теперь откроем через нормальный путь
-			Key result(info.cBranch, _name, info.nativeHandle);
+			Key result(info.cBranch, info.fullAddress + TEXT("\\") +  _name, NULL/*info.nativeHandle*/);
 			result.setType(_t);
 			return result;
 		}
