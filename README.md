@@ -17,3 +17,12 @@ We will glad if you would help us to build a new version.
 If you are asking, Why we have published that? Because carry a release date has become ashamed, and we want to show that development still in process and we are not forgetting about you.
 
 Waiting your suggestions and commits =)
+
+SPA:
+
+Hola. Si estas aca es por que estas buscando la nueva version del DWS? Pero como veras, aun no esta listo, y el codigo fuente esta incompleto y no esta listo para usarse.
+Este projecto no se ha abandonado (Estado desde el 04/30/2016). Pero tampoco hemos tenido tiempo para trabajar estrechamente en él.
+Nos alegraria mucho poder recibir vuestra ayuda para construir una nueva versión.
+Si se están preguntando, ¿Por qué lo hemos publicado? Bueno, es debido a que ponernos una fecha de lanzamiento se ha convertido en nuesta vergüenza, y queremos demostrar que el desarrollo aún en proceso y no estamos olvidando de ustedes.
+
+Esperamos sus sugerencias y commits =)
