@@ -54,17 +54,21 @@ DllExport void _main();
 
 DllExport void RedirectIOToConsole();
 
-namespace DWSKernel {
-	DllExport void ShowMessageBox(HWND hWnd, String Message, String Caption);
+namespace NULLPTR {
+	namespace DWS {
+		namespace Kernel {
+			DllExport void ShowMessageBox(HWND hWnd, String Message, String Caption);
 
-	DllExport void initKernel();
+			DllExport void initKernel();
 
-	typedef std::function<void(String)> GrabberCallback;
+			typedef std::function<void(String)> GrabberCallback;
 
-	//замени обработчик и получишь весь output!
-	DllExport void addOutputGrabber(GrabberCallback _callback);
-	//создаем в нашем namespace аналоги из std
-	DllExport LockedStream<std::wostream> &wcout();
-	DllExport LockedStream<std::wistream> &wcin();
-	DllExport LockedStream<std::wostream> &wcerr();
+			//замени обработчик и получишь весь output!
+			DllExport void addOutputGrabber(GrabberCallback _callback);
+			//создаем в нашем namespace аналоги из std
+			DllExport LockedStream<std::wostream> &wcout();
+			DllExport LockedStream<std::wistream> &wcin();
+			DllExport LockedStream<std::wostream> &wcerr();
+		}
+	}
 }

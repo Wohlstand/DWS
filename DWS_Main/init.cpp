@@ -66,11 +66,11 @@ BOOL CreateComponents(HWND hWnd)
 	SendMessage(LogHwnd, WM_SETFONT, (WPARAM)_Log_Font, TRUE);
 
 	//grab full log!
-	DWSKernel::addOutputGrabber([LogHwnd](String _str) {
+	NULLPTR::DWS::Kernel::addOutputGrabber([LogHwnd](String _str) {
 		OutLog(LogHwnd, _str);
 	});
 #pragma message ("sergius-dart:Dont remove this!")
-	DWSKernel::initKernel();
+	NULLPTR::DWS::Kernel::initKernel();
 #ifdef _DEBUG
 	//создадим принудительно консоль для вывода
 	RedirectIOToConsole();
@@ -220,7 +220,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 				}
 				case Elements::MainButton:
 				{
-					using namespace DWSKernel;
+					using namespace NULLPTR::DWS::Kernel;
 					for (BaseFixer* _ptr : BaseFixer::getAllFixers())
 					{
 						if (!_ptr->isApply())
