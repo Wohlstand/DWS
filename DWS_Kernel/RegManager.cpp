@@ -30,7 +30,8 @@ namespace NULLPTR {
 					{
 						UC_ERROR << "Not open key :: " << _path << " err = " << openResult << "\r\n";
 					}
-					return VReg(from, _path, _result);
+					//TODO!
+					return VReg(/*from, _path, _result*/);
 				}
 				namespace Registry
 				{
@@ -72,7 +73,7 @@ namespace NULLPTR {
 						if (resultQuery != ERROR_SUCCESS)
 						{
 							if (info.nativeHandle)
-								info.type = RegInformation::DIR;
+								return;
 							else
 								UC_ERROR << "RegQueryValueEx fail = " << resultQuery; //по дефолту значение UNDEFINED - поэтому ничего не ставим
 						}
@@ -83,7 +84,7 @@ namespace NULLPTR {
 					AbstractRegistryItem::~AbstractRegistryItem()
 					{
 						//Не должно быть такого, но мало ли...
-						if (info.nativeHandle != 0 && info.type == RegInformation::DIR)
+						if (info.nativeHandle != 0 && info.type == RegInformation::UNDEFINED)
 						{
 							LSTATUS result = RegCloseKey(info.nativeHandle);
 							if (ERROR_SUCCESS != result)
@@ -100,20 +101,24 @@ namespace NULLPTR {
 					{
 					}
 
-					Key::Key(RegInformation::BRANCH _br, String _path, HKEY _v)
-						:AbstractRegistryItem(_br, _path, _v)
+					Key::Key(Directory * parent, String key)
 					{
 					}
+
+					//Key::Key(RegInformation::BRANCH _br, String _path, HKEY _v)
+					//	:AbstractRegistryItem(_br, _path, _v)
+					//{
+					//}
 
 					bool Key::isValid()
 						const
 					{
-						return info.nativeHandle && info.type > RegInformation::DIR;
+						return info.nativeHandle && info.type > RegInformation::UNDEFINED;
 					}
 
 					void Key::setType(RegInformation::TYPE _t)
 					{
-						if (info.type != _t && _t > RegInformation::DIR)
+						if (info.type != _t && _t > RegInformation::UNDEFINED)
 						{
 							info.type = _t;
 							setValue(TEXT(""));//устанавливаем тип записи и заполняем пустым значением. Если не задали тип - значит папка!
@@ -211,7 +216,7 @@ namespace NULLPTR {
 
 					Key Directory::getKey(String keyName)
 					{
-						return Key(info.cBranch, info.fullAddress + TEXT("\\") + keyName, 0);
+						return Key(this, keyName);
 					}
 
 					bool Directory::isValid()
@@ -227,7 +232,7 @@ namespace NULLPTR {
 							UC_ERROR << "don't open dir " << info.fullAddress << " -> not create inherit items...\r\n";
 							throw "isValid";
 						}
-						Key result(info.cBranch, info.fullAddress + TEXT("\\") + _name, NULL/*info.nativeHandle*/);
+						Key result(this,  _name );
 						result.setType(_t);
 						return result;
 					}

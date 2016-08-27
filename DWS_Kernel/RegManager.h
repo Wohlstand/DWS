@@ -11,20 +11,19 @@ namespace NULLPTR {
 				struct RegInformation {
 					enum TYPE
 					{
-						UNDEFINED = -2,//когда произошла ошибка инициализации
-						DIR = -1, //специальный случай. У нас открыта директория
-								  //Все возможные типы в порядке "возрастания"
-								  NONE = REG_NONE,
-								  SZ = REG_SZ,
-								  EXPAND_SZ = REG_EXPAND_SZ,
-								  BINARY = REG_BINARY,
-								  DWORD = REG_DWORD,
-								  LINK = REG_LINK,
-								  MULTI_SZ = REG_MULTI_SZ,
-								  RESOURCE_LIST = REG_RESOURCE_LIST,
-								  FULL_RESOURCE_DESCRIPTOR = REG_FULL_RESOURCE_DESCRIPTOR,
-								  RESOURCE_REQUIREMENTS_LIST = REG_RESOURCE_REQUIREMENTS_LIST,
-								  QWORD = REG_QWORD
+						UNDEFINED = -1,//когда произошла ошибка инициализации
+						//Все возможные типы в порядке "возрастания"
+						NONE = REG_NONE,
+						SZ = REG_SZ,
+						EXPAND_SZ = REG_EXPAND_SZ,
+						BINARY = REG_BINARY,
+						DWORD = REG_DWORD,
+						LINK = REG_LINK,
+						MULTI_SZ = REG_MULTI_SZ,
+						RESOURCE_LIST = REG_RESOURCE_LIST,
+						FULL_RESOURCE_DESCRIPTOR = REG_FULL_RESOURCE_DESCRIPTOR,
+						RESOURCE_REQUIREMENTS_LIST = REG_RESOURCE_REQUIREMENTS_LIST,
+						QWORD = REG_QWORD
 					};
 
 					enum BRANCH
@@ -76,7 +75,7 @@ namespace NULLPTR {
 					friend class Directory;
 					typedef unsigned __int64 QWORD;//WTF? 
 					Key();
-					Key(RegInformation::BRANCH _br, String _path, HKEY _v);
+					Key( Directory *parent, String key);
 
 					virtual bool isValid() const override;
 
@@ -124,9 +123,8 @@ namespace NULLPTR {
 				DReg getDir(Registry::RegInformation::BRANCH from, String _path);//открыть директорию по ПОЛНОМУ пути
 				VReg getKey(Registry::RegInformation::BRANCH from, String _path);//открыть ключ по ПОЛНОМУ пути
 
-				static String machinePath;//игнорь меня полностью.
 			private:
-
+				static String machinePath;//игнорь меня полностью.
 			};
 
 
