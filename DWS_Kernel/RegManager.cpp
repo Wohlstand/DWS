@@ -203,12 +203,6 @@ namespace NULLPTR {
 					{
 					}
 
-					Directory::Directory(Key& _k)
-					{
-						_k.setType(RegInformation::NONE);
-						info = _k.info;//копирование информации и установка типа в REG_NONE
-					}
-
 					Directory::Directory(RegInformation::BRANCH _br, String _path, HKEY _v)
 						:AbstractRegistryItem(_br, _path, _v)
 					{

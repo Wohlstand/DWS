@@ -72,7 +72,6 @@ namespace NULLPTR {
 
 				struct Key :public AbstractRegistryItem
 				{
-					friend class Directory;
 					typedef unsigned __int64 QWORD;//WTF? 
 					Key();
 					Key( Directory *parent, String key);
@@ -90,7 +89,6 @@ namespace NULLPTR {
 
 				struct Directory :public AbstractRegistryItem
 				{
-					friend struct Key;
 					Directory();
 					Directory(Key&);
 					Directory(RegInformation::BRANCH _br, String _path, HKEY _v);
