@@ -15,28 +15,31 @@
 
 
 //namespace для всяких полезных функций
-namespace DWSUtility
-{
-	using namespace DWSKernel;
+namespace NULLPTR {
+	namespace DWS {
+		namespace Utility {
+			using namespace Kernel;
 
-	bool RunCmd(String _cmd);
+			bool RunCmd(String _cmd);
 
-	void disable_service(String _servName);
+			void disable_service(String _servName);
 
-	struct Utility {
-		Utility();
-		void init();
-		SCManager& getServiceManager();
-		RegistryManager& getRegManager();
+			struct Utility {
+				Utility();
+				void init();
+				SCManager& getServiceManager();
+				RegistryManager& getRegManager();
 
-	private:
-		struct {
-			SCManager scManager;
-			RegistryManager regManager;
-		} p;
-		bool inited;
-	};
+			private:
+				struct {
+					SCManager scManager;
+					RegistryManager regManager;
+				} p;
+				bool inited;
+			};
 
-	Utility& initUtility();
-	Utility& getUtility();
+			Utility& initUtility();
+			Utility& getUtility();
+		}
+	}
 }

@@ -13,6 +13,12 @@
     <Filter Include="Kernel\Utility">
       <UniqueIdentifier>{354abec6-8945-444f-830b-6118d5c10e1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Kernel\Utility\Registry">
+      <UniqueIdentifier>{71144a9a-9132-4b71-bb62-3f4a76edf03a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Utility\Process">
+      <UniqueIdentifier>{87c7cb43-7840-4c02-8581-4d40e8881067}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DWS_Kernel.cpp">
@@ -27,9 +33,6 @@
     <ClCompile Include="SCManager.cpp">
       <Filter>Kernel\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="RegManager.cpp">
-      <Filter>Kernel\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="HostsEditor.cpp">
       <Filter>Kernel\Utility</Filter>
     </ClCompile>
@@ -39,11 +42,14 @@
     <ClCompile Include="DWS_Utility.cpp">
       <Filter>Kernel</Filter>
     </ClCompile>
-    <ClCompile Include="PSRunner.cpp">
-      <Filter>Kernel\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="BaseFixer.cpp">
       <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="RegManager.cpp">
+      <Filter>Kernel\Utility\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="PSRunner.cpp">
+      <Filter>Kernel\Utility\Process</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,14 +74,14 @@
     <ClInclude Include="SCManager.h">
       <Filter>Kernel\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="RegManager.h">
-      <Filter>Kernel\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="HostsEditor.h">
       <Filter>Kernel\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="RegManager.h">
+      <Filter>Kernel\Utility\Registry</Filter>
+    </ClInclude>
     <ClInclude Include="PSRunner.h">
-      <Filter>Kernel\Utility</Filter>
+      <Filter>Kernel\Utility\Process</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

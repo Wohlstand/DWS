@@ -13,7 +13,7 @@ static std::wfstream ConsoleInput, ConsoleOutput, ConsoleError;
 
 DllExport void RedirectIOToConsole()
 {
-	using namespace DWSKernel;
+	using namespace NULLPTR::DWS::Kernel;
 	// Создание консоли в этом приложении
 	if (AllocConsole())
 	{
